@@ -1,1 +1,6 @@
 # ProyectoSIA
+
+Integrantes:
+GIOVANI PAOLO FAUNDEZ CID
+FELIPE PABLO BECHAN LÓPEZ
+... ... ...
