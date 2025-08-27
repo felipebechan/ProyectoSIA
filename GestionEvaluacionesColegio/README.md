@@ -5,7 +5,7 @@ Este es el avance del primer proyecto (SIA).
 ### Integrantes
 - VICENTE ...
 - FELIPE BECHAN 21.175.767-1
-- GIOVANI ...
+- GIOVANI FAÚNDEZ 21.084.192-k
 
 ### RESUMEN
 Es un programa de consola para gestionar evaluaciones de un colegio.

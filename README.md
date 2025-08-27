@@ -10,7 +10,7 @@ Todo el codigo y la info del proyecto esta en la carpeta de adentro.
 **Integrantes:**
 - VICENTE ...
 - FELIPE BECHAN 21.175.767-1
-- GIOVANI ...
+- GIOVANI FAÚNDEZ 21.084.192-k
 
 **Profesores:**
 - Leonardo Gonzalez Catalan
