@@ -3,7 +3,7 @@
 Este es el avance del primer proyecto (SIA).
 
 ### Integrantes
-- VICENTE ...
+- VICENTE RODRIGUEZ 21.768.082-4
 - FELIPE BECHAN 21.175.767-1
 - GIOVANI FAÚNDEZ 21.084.192-k
 
@@ -45,4 +45,5 @@ necesitas tener java jdk 11 instalado pa que funcione.
 - [ ] Agregar mas tipos de preguntas (alternativas, verdadero/falso).
 - [ ] Mejorar el manejo de errores, que el programa no se caiga si metes una letra en vez de un numero.
 - [ ] Pasar todo a interfaz grafica con Swing pa la entrega final.
+
 - [ ] Agregar persistencia para guardar los datos en un archivo y que no se borren (podriamos usar sqlite, soy fan jaja, con maven tmb).
