@@ -8,7 +8,7 @@ Todo el codigo y la info del proyecto esta en la carpeta de adentro.
 
 ### Grupo 07
 **Integrantes:**
-- VICENTE ... ...
+- VICENTE RODRIGUEZ 21.768.082-4
 - FELIPE BECHAN 21.175.767-1
 - GIOVANI FAÚNDEZ 21.084.192-k
 
