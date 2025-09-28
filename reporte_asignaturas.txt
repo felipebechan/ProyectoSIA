@@ -1,0 +1,10 @@
+--- REPORTE DE SISTEMA DE EVALUACIONES ---
+
+Asignatura: Mate 1 (MAT123)
+------------------------------------------
+	- Banco: mate1 (1 preguntas)
+
+Asignatura: Intro a la inf (INF1234)
+------------------------------------------
+	No tiene bancos de preguntas.
+
