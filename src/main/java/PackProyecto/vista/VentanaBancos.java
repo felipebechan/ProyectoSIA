@@ -2,8 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package PackProyecto;
+package PackProyecto.vista;
 
+import PackProyecto.modelo.Asignatura;
+import PackProyecto.modelo.BancoDePreguntas;
+import PackProyecto.modelo.ElementoDuplicadoException;
+import PackProyecto.modelo.ElementoNoEncontradoException;
 import javax.swing.*;
 import java.awt.*;
 
@@ -49,7 +53,7 @@ public class VentanaBancos extends JDialog {
         add(panel);
         actualizarListaBancos();
 
-        // EVENTOS DE LOS BOTONES
+        
         btnAgregar.addActionListener(e -> {
             String tema = JOptionPane.showInputDialog(this, "ingresa el tema del nuevo banco:");
             if (tema != null && !tema.trim().isEmpty()) {

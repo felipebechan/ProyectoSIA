@@ -4,6 +4,8 @@
  */
 package PackProyecto;
 
+import PackProyecto.controlador.AppController;
+import PackProyecto.modelo.SistemaEvaluaciones;
 import javax.swing.SwingUtilities;
 
 /**
@@ -12,19 +14,12 @@ import javax.swing.SwingUtilities;
  */
 public class Main {
     public static void main(String[] args) {
-        // para asegurar que la gui se ejecute bien
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                // creamos el sistema que contiene toda la logica
-                SistemaEvaluaciones sistema = new SistemaEvaluaciones();
-                
-                // SIA2.2: cargamos los datos al iniciar la aplicacion
-                sistema.cargarDatos(); 
-                
-                // creamos y mostramos la ventana principal, pasandole el sistema
-                new VentanaPrincipal(sistema).setVisible(true);
-            }
+        SwingUtilities.invokeLater(() -> {
+            SistemaEvaluaciones modelo = new SistemaEvaluaciones();
+            modelo.cargarDatos();
+            
+            AppController controlador = new AppController(modelo);
+            controlador.iniciar();
         });
     }
 }
