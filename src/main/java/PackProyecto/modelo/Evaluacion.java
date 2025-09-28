@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package PackProyecto;
+package PackProyecto.modelo;
 
 import java.util.ArrayList;
 
@@ -33,10 +33,10 @@ public class Evaluacion {
     public Profesor getProfesor() { return profesor; }
     public void setProfesor(Profesor profesor) { this.profesor = profesor; }
 
-    // metodos de gestion
+    
     public boolean agregarPregunta(Pregunta p) {
         if (p == null) return false;
-        if (buscarPregunta(p.getEnunciado()) != null) return false;
+        // quitamos la validacion de duplicado para poder add preguntas al azar
         return this.preguntas.add(p);
     }
 
@@ -61,7 +61,7 @@ public class Evaluacion {
     }
 
     // ALUMNOS
-    // --------------------
+    
     public boolean eliminarAlumno(String rut) {
         if (alumnos.isEmpty() || rut == null) return false;
         for (int i = 0; i < alumnos.size(); i++) {
@@ -98,7 +98,7 @@ public class Evaluacion {
     }
 
     // NOTAS
-    // --------------------
+    
     public boolean eliminarNota(String rutAlumno) {
         if (notas.isEmpty() || rutAlumno == null) return false;
         for (int i = 0; i < notas.size(); i++) {
@@ -133,7 +133,6 @@ public class Evaluacion {
     }
 
     // PREGUNTAS
-    // --------------------
     public boolean eliminarPregunta(String enunciado) {
         if (preguntas.isEmpty() || enunciado == null) return false;
         for (int i = 0; i < preguntas.size(); i++) {
@@ -179,5 +178,14 @@ public class Evaluacion {
             }
         }
         return aprobados;
+    }
+    
+    //  getters nuevos para el controlador 
+    public ArrayList<Pregunta> getPreguntas() { 
+        return preguntas; 
+    }
+    
+    public ArrayList<Alumno> getAlumnos() { 
+        return alumnos; 
     }
 }

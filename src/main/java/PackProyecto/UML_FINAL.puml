@@ -1,0 +1,130 @@
+
+@startuml
+
+skinparam classAttributeIconSize 0
+
+' ====== PAQUETE MODELO ======
+package "modelo" {
+    
+    abstract class Persona {
+        # nombre : String
+        # rut : String
+        + mostrarInfo() : void
+    }
+    class Alumno extends Persona {
+        - curso : String
+    }
+    class Profesor extends Persona {
+        - especialidad : String
+    }
+
+    class Nota {
+        - alumno : Alumno
+        - nota : double
+        - codigoAsignatura : String
+    }
+
+    class Pregunta {
+        - enunciado : String
+        - respuestaCorrecta : String
+        - puntaje : int
+    }
+    
+    class BancoDePreguntas {
+        - tema : String
+        - listaPreguntas : ArrayList<Pregunta>
+        + agregarPregunta(Pregunta) : void
+        + buscarPregunta(String) : Pregunta
+    }
+
+    class Asignatura {
+        - codigo : String
+        - nombre : String
+        - listaBancosDePreguntas : ArrayList<BancoDePreguntas>
+        + agregarBancoDePreguntas(BancoDePreguntas) : void
+    }
+
+    class Evaluacion {
+        - tema : String
+        - preguntas : ArrayList<Pregunta>
+        - profesor : Profesor
+        - alumnos : ArrayList<Alumno>
+    }
+
+    class SistemaEvaluaciones {
+        - listaAsignaturas : List<Asignatura>
+        - listaUsuarios : List<Persona>
+        - listaDeTodasLasNotas : List<Nota>
+        - gestorArchivos : GestorArchivos
+        + validarUsuario(String) : Persona
+        + agregarUsuario(Persona) : void
+        + crearPrueba(Asignatura, Alumno, int) : Evaluacion
+        + corregirPrueba(Evaluacion, List<String>) : Nota
+        + generarReportePromedios() : String
+        + exportarNotasCSV(String) : void
+        + cargarDatos() : void
+        + guardarDatos() : void
+    }
+
+    class GestorArchivos {
+        + cargarUsuarios() : List<Persona>
+        + guardarUsuarios(List<Persona>) : void
+        + cargarAsignaturas() : List<Asignatura>
+        + guardarAsignaturas(List<Asignatura>) : void
+        + cargarNotas() : List<Nota>
+        + guardarNotas(List<Nota>) : void
+        + generarReporteAsignaturas(List<Asignatura>, String) : void
+    }
+
+}
+
+' ====== PAQUETE VISTA ======
+package "vista" {
+    class VentanaLogin
+    class VentanaPrincipal
+    class VentanaBancos
+    class VentanaPreguntas
+    class VentanaUsuarios
+    class VentanaTomarPrueba
+}
+
+' ====== PAQUETE CONTROLADOR ======
+package "controlador" {
+    class AppController {
+        - modelo : SistemaEvaluaciones
+        - usuarioActual : Persona
+        - vistaLogin : VentanaLogin
+        - vistaPrincipal : VentanaPrincipal
+        + iniciar() : void
+        + intentarLogin(String) : void
+        + agregarAsignatura(String, String) : void
+        + iniciarProcesoDePrueba() : void
+        + guardarTodo() : void
+    }
+}
+
+
+' ====== RELACIONES ======
+
+' Herencia
+Persona <|-- Alumno
+Persona <|-- Profesor
+
+' Relaciones dentro del Modelo
+SistemaEvaluaciones "1" *-- "*" Asignatura : contiene
+SistemaEvaluaciones "1" *-- "*" Persona : gestiona
+SistemaEvaluaciones "1" *-- "*" Nota : registra
+SistemaEvaluaciones "1" --> "1" GestorArchivos : usa para persistencia
+
+Asignatura "1" *-- "*" BancoDePreguntas
+BancoDePreguntas "1" *-- "*" Pregunta
+Nota "1" --> "1" Alumno
+
+' Relaciones MVC
+AppController --> SistemaEvaluaciones : controla
+VentanaPrincipal ..> AppController : es controlada por
+VentanaLogin ..> AppController : es controlada por
+VentanaUsuarios ..> AppController
+VentanaTomarPrueba ..> AppController
+
+@enduml
