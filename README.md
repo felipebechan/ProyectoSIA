@@ -49,7 +49,7 @@ El proyecto está organizado bajo el patrón **Modelo-Vista-Controlador (MVC)** 
 *   **Alumno:** rut `1-1`
 *   **Profesor:** rut `2-2`
 
-Necesitas tener **Java JDK 11** instalado pa que funcione.
+Necesitas tener **Java JDK 11** instalado para que funcione.
 
 ---
 
