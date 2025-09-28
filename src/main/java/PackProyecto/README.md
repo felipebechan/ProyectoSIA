@@ -57,7 +57,7 @@ Necesitas tener **Java JDK 11** instalado pa que funcione.
 
 *   **SIA2.1 (Diagrama UML):** El diagrama UML actualizado está en el repo y refleja la nueva arquitectura MVC.
 *   **SIA2.2 (Persistencia):** Los datos se guardan en 4 archivos CSV (`usuarios.csv`, `asignaturas.csv`, `preguntas.csv`, `notas.csv`). El sistema los carga al iniciar y los guarda al salir.
-*   **SIA2.3 (Interfaz Gráfica SWING):** Toda la interacción con el usuario ahora es a través de ventanas de Swing.
+*   **SIA2.3 (Interfaz Gráfica SWING):** Toda xsla interacción con el usuario ahora es a través de ventanas de Swing.
 *   **SIA2.4 (Edición/Eliminación 2ª colección):** En la vista de profesor, al gestionar los bancos de una asignatura, se pueden editar y eliminar (CRUD completo).
 *   **SIA2.5 (Funcionalidad Propia - Filtro):** Se implementaron varias funcionalidades propias:
     *   **Reporte de promedios:** El profesor puede ver el promedio de notas de cada asignatura.
