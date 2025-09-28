@@ -1,0 +1,111 @@
+@startuml
+
+abstract class Persona {
+    - nombre : String
+    - rut : String
+    + getNombre() : String
+    + setNombre(String) : void
+    + getRut() : String
+    + setRut(String) : void
+    + mostrarInfo() : void
+}
+
+class Alumno {
+    - curso : String
+    + getCurso() : String
+    + setCurso(String) : void
+    + mostrarInfo() : void
+}
+
+class Profesor {
+    - especialidad : String
+    + getEspecialidad() : String
+    + setEspecialidad(String) : void
+    + mostrarInfo() : void
+}
+
+class Nota {
+    - alumno : Alumno
+    - nota : double
+    + getAlumno() : Alumno
+    + setAlumno(Alumno) : void
+    + getNota() : double
+    + setNota(double) : void
+    + toString() : String
+}
+
+class Pregunta {
+    - enunciado : String
+    - respuestaCorrecta : String
+    - puntaje : int
+    + getEnunciado() : String
+    + setEnunciado(String) : void
+    + getRespuestaCorrecta() : String
+    + setRespuestaCorrecta(String) : void
+    + getPuntaje() : int
+    + setPuntaje(int) : void
+}
+
+class Evaluacion {
+    - tema : String
+    - preguntas : ArrayList<Pregunta>
+    - profesor : Profesor
+    - alumnos : ArrayList<Alumno>
+    - notas : ArrayList<Nota>
+    + getTema() : String
+    + setTema(String) : void
+    + getProfesor() : Profesor
+    + setProfesor(Profesor) : void
+    + agregarPregunta(Pregunta) : void
+    + inscribirAlumno(Alumno) : void
+    + registrarNota(Nota) : void
+    + mostrarInfo() : void
+    + eliminarAlumno(String) : boolean
+    + modificarAlumno(String,String,String) : boolean
+    + buscarAlumno(String) : Alumno
+    + eliminarNota(String) : boolean
+    + modificarNota(String,double) : boolean
+    + buscarNota(String) : Nota
+    + eliminarPregunta(String) : boolean
+    + modificarPregunta(String,String,int) : boolean
+    + buscarPregunta(String) : Pregunta
+    + filtrarAlumnosAprobados() : ArrayList<Alumno>
+}
+
+class BancoDePreguntas {
+    - tema : String
+    - listaPreguntas : ArrayList<Pregunta>
+    + getTema() : String
+    + setTema(String) : void
+    + agregarPregunta(Pregunta) : void
+    + agregarPregunta(String,String,int) : void
+    + eliminarPregunta(String) : boolean
+    + modificarPregunta(String,String,int) : boolean
+    + buscarPregunta(String) : Pregunta
+}
+
+class Asignatura {
+    - codigo : String
+    - nombre : String
+    - listaBancosDePreguntas : ArrayList<BancoDePreguntas>
+    + getCodigo() : String
+    + setCodigo(String) : void
+    + getNombre() : String
+    + setNombre(String) : void
+    + agregarBancoDePreguntas(BancoDePreguntas) : void
+}
+
+' ====== RELACIONES ======
+Persona <|-- Alumno
+Persona <|-- Profesor
+
+Evaluacion "1" --> "1" Profesor
+Evaluacion "1" --> "*" Alumno
+Evaluacion "1" --> "*" Nota
+Evaluacion "1" --> "*" Pregunta
+
+Nota "1" --> "1" Alumno
+BancoDePreguntas "1" --> "*" Pregunta
+Asignatura "1" --> "*" BancoDePreguntas
+
+@enduml
