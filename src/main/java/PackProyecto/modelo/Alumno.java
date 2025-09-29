@@ -26,6 +26,7 @@ public class Alumno extends Persona {
 
     @Override
     public void mostrarInfo() {
-        System.out.println("alumno: " + nombre + " | rut: " + rut + " | curso: " + curso);
+        System.out.println("alumno: " + getNombre() + " | rut: " + getRut() + " | curso: " + curso);
     }
+
 }
