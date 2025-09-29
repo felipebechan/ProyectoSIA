@@ -26,6 +26,7 @@ public class Profesor extends Persona {
 
     @Override
     public void mostrarInfo() {
-        System.out.println("profesor: " + nombre + " | rut: " + rut + " | especialidad: " + especialidad);
+        System.out.println("profesor: " + getNombre() + " | rut: " + getRut() + " | especialidad: " + especialidad);
     }
+
 }
