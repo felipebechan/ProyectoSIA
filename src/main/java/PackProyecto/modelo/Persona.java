@@ -9,8 +9,8 @@ package PackProyecto.modelo;
  * @author mac
  */
 public abstract class Persona {
-    protected String nombre;
-    protected String rut; // o id unico
+    private String nombre;
+    private String rut; // o id unico
 
     public Persona(String nombre, String rut) {
         this.nombre = nombre;
@@ -35,4 +35,5 @@ public abstract class Persona {
 
     // metodo comun
     public abstract void mostrarInfo();
+
 }
